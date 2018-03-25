@@ -1,4 +1,4 @@
-<div class="col-xs-12" *ngIf="!items.length === 0">
+<div class="col-xs-12" *ngIf="items.length === 0">
   <p>
     Não há itens no seu carrinho. Que tal começar por <a [routerLink]="['/restaurants']">aqui</a>?
   </p>
@@ -18,16 +18,16 @@
     <tbody>
     <tr *ngFor="let item of items">
       <td class="text-center">
-        <a (click)="emitDecreaseQty(Item)" class="btn btn-sm"><i class="fa fa-minus"></i></a>
-         {{item.quantity}}
-        <a (click)="emitIncreaseQty(Item)" class="btn btn-sm"><i class="fa fa-plus"></i></a>
+        <a (click)="emitDecreaseQty(item)" class="btn btn-sm"><i class="fa fa-minus"></i></a>
+        {{item.quantity}}
+        <a (click)="emitIncreaseQty(item)" class="btn btn-sm"><i class="fa fa-plus"></i></a>
       </td>
       <td>{{item.menuItem.name}}</td>
 
       <td>{{item.menuItem.description}}</td>
       <td class="text-right">{{item.value() | currency: 'BRL': true}}</td>
       <td class="text-right">
-        <a (click)="emitRemove(Item)"class="btn btn-sm danger"><i class="fa fa-remove"></i></a>
+        <a (click)="emitRemove(item)" class="btn btn-sm danger"><i class="fa fa-remove"></i></a>
       </td>
     </tr>
 
